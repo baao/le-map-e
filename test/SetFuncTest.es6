@@ -36,7 +36,7 @@ describe('SetFunc', function () {
 
     describe('#deepMapAppendOrNew()', () => {
         it('should add element to the set', done => {
-            let a = new Set([new Map([['a','b']])]);
+            let a = new Set();
             a.deepMapAppendOrNew(3,4).deepMapAppendOrNew(5,7).deepMapAppendOrNew(5,9);
             a.should.deep.equal(new Set ([ new Map([['a','b'],[3,4], [5,7]],new Map([[5,9]]))]));
             done();

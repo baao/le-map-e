@@ -8,6 +8,9 @@
 module.exports = (() => {
     Set.prototype.deepMapAppendOrNew = function (key,value) {
         let self = this;
+        if (self.size == 0) {
+            return this.add(new Map([[key,value]]))
+        }
         if (Array.from(self.last()).pop().has(key)) {
             return this.add(new Map([[key,value]]));
         }
