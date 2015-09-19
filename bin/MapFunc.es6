@@ -2,7 +2,9 @@
 module.exports = (() => {
     Map.prototype.setOrPush = function (key, value) {
         if (this.has(key)) {
-            return this.set(this.get(key), this.get(key).push(value));
+            let tmp = this.get(key);
+            tmp.push(value);
+            return this.set(key, tmp);
         }
         return this.set(key, value)
     };
@@ -12,5 +14,19 @@ module.exports = (() => {
             return this.set(key, this.get(key).concat(value));
         }
         return this.set(key, value)
+    };
+
+    Map.prototype.last = function (removeFromMap) {
+        let self = this;
+        let lastItem = Array.from(self.entries());
+        lastItem = lastItem.pop();
+        if (removeFromMap) {
+            this.delete(lastItem[0][0]);
+        }
+        return new Map([lastItem]);
+    };
+
+    Map.prototype.pop = function() {
+        return this.last(true);
     }
 })();
