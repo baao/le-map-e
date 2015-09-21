@@ -1,5 +1,10 @@
 'use strict';
 module.exports = (() => {
+
+    function _Map(key,value) {
+        return new Map([[key,value]]);
+    }
+
     Map.prototype.setOrPush = function (key, value) {
         if (this.has(key)) {
             let tmp = this.get(key);

@@ -6,6 +6,11 @@
  */
 'use strict';
 module.exports = (() => {
+
+    function _Set (value) {
+        return new Set([value]);
+    }
+
     Set.prototype.deepMapAppendOrNew = function (key,value) {
         let self = this;
         if (self.size == 0) {
