@@ -33,5 +33,9 @@ module.exports = (() => {
 
     Map.prototype.pop = function() {
         return this.last(true);
+    };
+
+    Map.prototype.sort = function() {
+        return new Map(Array.from(this.entries()).sort());
     }
 })();

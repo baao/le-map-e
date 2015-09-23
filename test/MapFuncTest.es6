@@ -64,7 +64,14 @@ describe('MapFunc', function () {
             let c = new Map([[1,2],['a',4],['v',6]]);
             let b = new Set([a]);
             b.add(c);
-            console.log(b);
+            done();
+        });
+    });
+
+    describe('#sort()', () => {
+        it('should return a ASC sorted map', done => {
+            let a = new Map([[1,2],['x',4],['v',6]]).sort();
+            console.log(a);
             done();
         });
     });
